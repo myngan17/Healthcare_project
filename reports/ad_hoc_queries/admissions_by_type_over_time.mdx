@@ -1,0 +1,13 @@
+-- Admissions by type over Month/Quarter/Year
+SELECT 
+    NON EMPTY{[Dim Admission Type].[Admission Type].CHILDREN*[Measures].[Total Admission]} ON COLUMNS,
+    NON EMPTY (
+        DrillDownLevel(
+            DrillDownLevel(
+                [Dim Time].[Hierarchy].MEMBERS,  
+                [Dim Time].[Hierarchy].[Admission Quarter]  
+            ),
+            [Dim Time].[Hierarchy].[Admission Month]        
+        )
+    ) ON ROWS
+FROM [Healthcare Dtb]

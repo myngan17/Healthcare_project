@@ -1,0 +1,10 @@
+-- Admissions & Hospitalization Days by Disease
+SELECT
+	NON EMPTY {
+		[Measures].[Total Admission],
+		[Measures].[Total Hospitalization Days]
+	} ON COLUMNS,
+	NON EMPTY {
+		[Dim Medical Condition].[Medical Condition].[Medical Condition].MEMBERS
+	} ON ROWS
+FROM [Healthcare Dtb]

@@ -1,0 +1,13 @@
+-- Total Billing & Hospitalization Days by Admission Type
+SELECT
+  NON EMPTY 
+    {[Measures].[Total Billing Amount], [Measures].[Total Hospitalization Days]} ON COLUMNS,
+  NON EMPTY 
+    GENERATE(
+      [Dim Time].[Hierarchy].[Admission Year].MEMBERS, 
+      CrossJoin(
+        {[Dim Time].[Hierarchy].[Admission Year].&[2024]},
+        [Dim Admission Type].[Admission Type].MEMBERS
+      )
+    ) ON ROWS
+FROM [Healthcare Dtb]

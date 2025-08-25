@@ -1,0 +1,12 @@
+-- Patients aged 18–30 by Disease per Year
+SELECT
+    NON EMPTY  [Dim Time].[Hierarchy].[Admission Year].MEMBERS  ON COLUMNS,
+	NON EMPTY [Dim Medical Condition].[Medical Condition].[Medical Condition].MEMBERS ON ROWS
+FROM [Healthcare Dtb]
+WHERE ([Measures].[Number of Patients],
+	 FILTER(
+                [Dim Patient].[Age].MEMBERS,
+                VAL([Dim Patient].[Age].CURRENTMEMBER.MEMBER_VALUE) >= 18 AND
+				VAL([Dim Patient].[Age].CURRENTMEMBER.MEMBER_VALUE) <= 30
+            )
+	  )
