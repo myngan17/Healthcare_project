@@ -13,18 +13,19 @@ Analytics system for 55,000+ patient admission records, focusing on **data clean
 - **Key Metrics & Reporting**  
   Defined KPIs such as total admissions, average hospitalization days, billing amounts.  
   Developed OLAP-style queries (MDX, SQL-like) to derive ad-hoc insights, e.g.:
-  - Top medicines used for cancer treatment  
-  - Most common diseases by age group  
-  - Admissions by type over months/years  
+  - Admissions by type over Month/Quarter/Year
+  - Admissions & Hospitalization Days by Disease
+  - Total Billing & Hospitalization Days by Admission Type
+  - Admissions & Days by Disease × Medication
+  - Patients aged 18–30 by Disease per Year
 
 - **Predictive Analytics (Python)**  
   Built Decision Tree and Random Forest models to forecast patient test results.  
   Random Forest achieved the highest accuracy and revealed key features via importance plots.  
 
 ## 📊 Sample Outputs
-- Correlation heatmap: `data_preprocessing/correlation_heatmap.png`  
-- Admissions dashboard (Power BI): `dashboards/powerbi_dashboard.png`  
-- Feature importance plot (Random Forest): `predictive_models/feature_importance.png`  
+- Admissions dashboard (Power BI): `dashboards/PowerBI`  
+- Admissions dashboard (Excel): `dashboards/Excel`  
 
 ## ✅ Skills Demonstrated
 - Python (Pandas, NumPy, scikit-learn) for data cleaning & predictive analytics  
