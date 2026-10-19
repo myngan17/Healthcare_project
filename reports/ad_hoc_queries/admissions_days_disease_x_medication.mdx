@@ -1,8 +1,0 @@
--- Admissions & Days by Disease × Medication
-SELECT 
-    {[Measures].[Total Admission], [Measures].[Total Hospitalization Days]} ON COLUMNS,
-    NON EMPTY CROSSJOIN(
-        [Dim Medical Condition].[Medical Condition].[Medical Condition].MEMBERS, 
-        [Dim Medication].[Medication].[Medication].MEMBERS
-    ) ON ROWS
-FROM [Healthcare Dtb]
